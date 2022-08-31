@@ -52,6 +52,9 @@ const Home: NextPage = () => {
 
         <Badge>This is a Badge styled component</Badge>
         <Button color="red" backgroundColor="white">Push Me!</Button>
+        <Button color="white" backgroundColor="blue">Push Me!</Button>
+        <Button color="white" backgroundColor="orange">Push Me!</Button>
+        <Button color="grey" backgroundColor="black">Push Me!</Button>
 
         <p className={styles.description}>
           Get started by editing{' '}
