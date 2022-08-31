@@ -18,6 +18,24 @@ const Badge = styled.span`
   border-radius: 0.25rem;
 `;
 
+type ButtonProps = {
+  color: string;
+  backgroundColor: string;
+}
+
+const Button = styled.button<ButtonProps>`
+  color: ${props => props.color};
+  background-color: ${props => props.backgroundColor};
+  border: 2px solid ${props => props.color};
+
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+`;
+
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -33,6 +51,7 @@ const Home: NextPage = () => {
         </H1>
 
         <Badge>This is a Badge styled component</Badge>
+        <Button color="red" backgroundColor="white">Push Me!</Button>
 
         <p className={styles.description}>
           Get started by editing{' '}
