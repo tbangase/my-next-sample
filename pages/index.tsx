@@ -2,7 +2,7 @@ import type {NextPage} from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const H1 = styled.h1`
   color: red;
@@ -23,7 +23,7 @@ type ButtonProps = {
   backgroundColor: string;
 }
 
-const Button = styled.button<ButtonProps>`
+const PropButton = styled.button<ButtonProps>`
   color: ${props => props.color};
   background-color: ${props => props.backgroundColor};
   border: 2px solid ${props => props.color};
@@ -35,6 +35,25 @@ const Button = styled.button<ButtonProps>`
   cursor: pointer;
 `;
 
+const redBox = css`
+  padding: 1rem;
+  border: 2px solid #ff0000;
+  border-radius: 0.25rem;
+`;
+
+const blueFont = css`
+  color: #1e90ff;
+  font-size: 2rem;
+`;
+
+const MixinButton = styled.button`
+  background: transparent;
+  margin: 1rem;
+  cursor: pointer;
+
+  ${redBox}
+  ${blueFont}
+`;
 
 const Home: NextPage = () => {
   return (
@@ -51,10 +70,12 @@ const Home: NextPage = () => {
         </H1>
 
         <Badge>This is a Badge styled component</Badge>
-        <Button color="red" backgroundColor="white">Push Me!</Button>
-        <Button color="white" backgroundColor="blue">Push Me!</Button>
-        <Button color="white" backgroundColor="orange">Push Me!</Button>
-        <Button color="grey" backgroundColor="black">Push Me!</Button>
+        <PropButton color="red" backgroundColor="white">Push Me!</PropButton>
+        <PropButton color="white" backgroundColor="blue">Push Me!</PropButton>
+        <PropButton color="white" backgroundColor="orange">Push Me!</PropButton>
+        <PropButton color="grey" backgroundColor="black">Push Me!</PropButton>
+
+        <MixinButton>Push Me!</MixinButton>
 
         <p className={styles.description}>
           Get started by editing{' '}
